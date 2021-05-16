@@ -8,7 +8,20 @@
 (load (expand-file-name "~/.quicklisp/slime-helper.el"))
 (setq inferior-lisp-program "sbcl")
 
-(set-face-attribute 'default nil :height 200)  ;; font size, like 2 times the default
+(set-face-attribute 'default nil :height 150)
+
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+;; Comment/uncomment this line to enable MELPA Stable if desired.  See `package-archive-priorities`
+;; and `package-pinned-packages`. Most users will not need or want to do this.
+;;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+(package-initialize)
+
+(require 'rainbow-blocks)
+
+(show-paren-mode t) ;; enable show paren mode
+
+(setq show-paren-style 'expression) ;; highlight whole expression
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -20,7 +33,7 @@
  '(ansi-color-names-vector
    ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
  '(custom-enabled-themes (quote (wheatgrass)))
- '(package-selected-packages (quote (##))))
+ '(package-selected-packages (quote (rainbow-blocks ##))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
