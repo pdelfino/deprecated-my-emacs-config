@@ -19,7 +19,19 @@
 
 (require 'rainbow-blocks)
 
+(add-hook 'text-mode-hook 'rainbow-blocks)
+
 (show-paren-mode t) ;; enable show paren mode
+
+(autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
+(add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
+(add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
+(add-hook 'ielm-mode-hook             #'enable-paredit-mode)
+(add-hook 'lisp-mode-hook             #'enable-paredit-mode)
+(add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
+(add-hook 'scheme-mode-hook           #'enable-paredit-mode)
+    
+;;(global-wakatime-mode) ;; enable wakatime to track time coding
 
 (setq show-paren-style 'expression) ;; highlight whole expression
 
@@ -33,7 +45,7 @@
  '(ansi-color-names-vector
    ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
  '(custom-enabled-themes (quote (wheatgrass)))
- '(package-selected-packages (quote (rainbow-blocks ##))))
+ '(package-selected-packages (quote (paredit wakatime-mode rainbow-blocks ##))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
