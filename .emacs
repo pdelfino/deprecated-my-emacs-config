@@ -19,7 +19,7 @@
 
 (require 'rainbow-blocks)
 
-(add-hook 'text-mode-hook 'rainbow-blocks)
+(add-hook 'lisp-mode-hook 'rainbow-blocks)
 
 (show-paren-mode t) ;; enable show paren mode
 
@@ -45,7 +45,10 @@
  '(ansi-color-names-vector
    ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
  '(custom-enabled-themes (quote (wheatgrass)))
- '(package-selected-packages (quote (paredit wakatime-mode rainbow-blocks ##))))
+ '(package-selected-packages
+   (quote
+    (rainbow-delimiters paredit wakatime-mode rainbow-blocks ##))))
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
