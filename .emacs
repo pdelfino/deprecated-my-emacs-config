@@ -3,23 +3,26 @@
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
+
 (package-initialize)
 
 (load (expand-file-name "~/.quicklisp/slime-helper.el"))
+
 (setq inferior-lisp-program "sbcl")
 
 (set-face-attribute 'default nil :height 150)
 
 (require 'package)
+
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+
 ;; Comment/uncomment this line to enable MELPA Stable if desired.  See `package-archive-priorities`
 ;; and `package-pinned-packages`. Most users will not need or want to do this.
 ;;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+
 (package-initialize)
 
 (require 'rainbow-blocks)
-
-(add-hook 'lisp-mode-hook 'rainbow-blocks)
 
 (show-paren-mode t) ;; enable show paren mode
 
@@ -31,7 +34,11 @@
 (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
 (add-hook 'scheme-mode-hook           #'enable-paredit-mode)
     
-;;(global-wakatime-mode) ;; enable wakatime to track time coding
+
+(add-to-list 'load-path  "~/.emacs.d/elpa/slime-20210512.1220")
+
+(require 'slime-autoloads)
+
 
 (setq show-paren-style 'expression) ;; highlight whole expression
 
@@ -47,7 +54,7 @@
  '(custom-enabled-themes (quote (wheatgrass)))
  '(package-selected-packages
    (quote
-    (rainbow-delimiters paredit wakatime-mode rainbow-blocks ##))))
+    (slime transpose-frame sly paredit wakatime-mode rainbow-blocks ##))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
