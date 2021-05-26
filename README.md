@@ -1,6 +1,10 @@
 # Emacs config
 
 Check-out the dot file
+- paredit
+- rainbow-block
+- transpose-frame
+- cursor highlight for the parenthesis scope
 
 ### My cheat-sheet
 
