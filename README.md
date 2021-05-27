@@ -8,6 +8,7 @@ Check-out the dot file
 
 ### My cheat-sheet
 
+Useful to [remember](https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf)
 ```
 COMMANDS
 
