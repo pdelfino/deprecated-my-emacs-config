@@ -311,28 +311,4 @@ Creating Macros
 		
 		C. Enter delete-line-number
 		
-	
-Food Descriptions Used in the Video
-
-KFC Famous Bowl
-Creamy mashed potatoes, sweet corn and bite-sized chunks of crispy chicken are layered together then drizzled with home-style gravy and topped with a perfect blend of three shredded cheeses.
-
-KFC Double Down
-The breadless burger features crispy bacon, melted Monterey Jack cheese and barbecue sauce sandwiched between two tasty chicken breast fillets.
-
-Taco Bell Chocoladillas
-Melted chunks of the popular chocolate Kit-Kat bar encased in a grilled flour quesadilla
-
-Taco Bell Firecracker Burrito
-Burrito with rice, beef, cheese and red tortilla strips wrapped in a red tortilla. It also comes with the option of adding cayenne "popping crystals" for an extra 20 cents. The sensation is similar to the popular Pop Rocks candy, causing a fizzy feeling in your mouth.
-	
-Taco Bell Naked Chicken Chalupa
-The first taco shell to be made entirely of fried chicken is finally available nationwide. 
-
-Taco Bell Cheetos Burrito
-Burrito with rice, beef, cheese and Cheetos stuffed in a tortilla.
-	
-Taco Bell Chicken Biscuit Taco
-Taco-shaped biscuit filled with sausage, egg and cheese; bacon, egg and cheese; crispy tortilla chip-breaded chicken with country gravy; or crispy chicken with jalapeño honey.
-
 ```
