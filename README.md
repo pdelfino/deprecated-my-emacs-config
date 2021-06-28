@@ -5,6 +5,8 @@ Check-out the dot file
 - rainbow-block
 - transpose-frame
 - cursor highlight for the parenthesis scope
+- helm
+- magit
 
 ### My cheat-sheet
 
