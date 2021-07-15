@@ -58,7 +58,7 @@
  '(custom-enabled-themes (quote (wheatgrass)))
  '(package-selected-packages
    (quote
-    (helm magit htmlize company helm-slime rainbow-delimiters transpose-frame paredit wakatime-mode ##)))
+    (disable-mouse helm magit htmlize company helm-slime rainbow-delimiters transpose-frame paredit wakatime-mode ##)))
  '(safe-local-variable-values
    (quote
     ((eval cl-flet
@@ -127,10 +127,8 @@
                                                       objc-mode       latex-mode
                                                       plain-tex-mode))
                  (let ((mark-even-if-inactive transient-mark-mode))
-                   (indent-region (region-beginning) (region-end) nil))))))
-                   
+                   (indent-region (region-beginning) (region-end) nil))))))                   
 
- 
 (put 'upcase-region 'disabled nil)
 
 ;;;;;;;;;;;;;;;;; helm
@@ -139,3 +137,37 @@
 
 (setq helm-M-x-fuzzy-match t) ;; optional fuzzy matching for helm-M-x
 
+;;;;;;;;;;;;;;;;; customização ParEdit
+
+(eval-after-load 'paredit
+  '(progn
+     (define-key paredit-mode-map (kbd "C->") 'paredit-forward-slurp-sexp)
+     (define-key paredit-mode-map (kbd "C-<")  'paredit-forward-barf-sexp)
+     (define-key paredit-mode-map (kbd "<C-right>") nil)
+     (define-key paredit-mode-map (kbd "<C-left>")  nil)))
+
+;;;;;;; customização flayspell-mode
+
+;(defun turn-on-flyspell () (flyspell-prog-mode 1))
+;(add-hook 'find-file-hooks 'turn-on-flyspell)
+
+;;Mouse hacking -> enforce a keyboard driven experience
+
+(mouse-wheel-mode 0)
+
+(global-disable-mouse-mode)
+
+
+;; apropos can sort results by relevancy. Not sure if Helm already does something
+
+(setq apropos-sort-by-scores t)
+
+;; Disable arrow keys to enforce C-n, C-p, C-f and C-b
+
+(global-unset-key (kbd "<left>") )
+
+(global-unset-key (kbd "<right>") )
+
+(global-unset-key (kbd "<up>") )
+
+(global-unset-key (kbd "<down>") )
