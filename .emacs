@@ -39,7 +39,6 @@
 (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode) ;ativado via M-x
 (add-hook 'scheme-mode-hook           #'enable-paredit-mode)
 (add-hook 'slime-repl-mode-hook 'enable-paredit-mode) ;ativar o paredit no slime    
-
 (add-to-list 'load-path  "~/.emacs.d/elpa/slime-20210512.1220")
 
 (require 'slime-autoloads)
@@ -58,7 +57,7 @@
  '(custom-enabled-themes (quote (wheatgrass)))
  '(package-selected-packages
    (quote
-    (disable-mouse helm magit htmlize company helm-slime rainbow-delimiters transpose-frame paredit wakatime-mode ##)))
+    (hydra disable-mouse helm magit htmlize company helm-slime rainbow-delimiters transpose-frame paredit wakatime-mode)))
  '(safe-local-variable-values
    (quote
     ((eval cl-flet
@@ -96,8 +95,7 @@
  ;; If there is more than one, they won't work right.
  )
 
-;;;;;;;;;;;;;;;;;;;;
-
+;; gain space, suggestions from Susam getting started with Emacs
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
@@ -106,7 +104,6 @@
 
 ;; Use spaces, not tabs, for indentation.
 (setq-default indent-tabs-mode nil)
-
 
 ; Configure Rainbow Delimiters.
 (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
@@ -142,9 +139,11 @@
 (eval-after-load 'paredit
   '(progn
      (define-key paredit-mode-map (kbd "C->") 'paredit-forward-slurp-sexp)
-     (define-key paredit-mode-map (kbd "C-<")  'paredit-forward-barf-sexp)
+     (define-key paredit-mode-map (kbd "C-<") 'paredit-forward-barf-sexp)
+     (define-key paredit-mode-map (kbd "C-M-<") 'paredit-backward-slurp-sexp)
+     (define-key paredit-mode-map (kbd "C-M->") 'paredit-backward-barf-sexp)
      (define-key paredit-mode-map (kbd "<C-right>") nil)
-     (define-key paredit-mode-map (kbd "<C-left>")  nil)))
+     (define-key paredit-mode-map (kbd "<C-left>") nil)))
 
 ;;;;;;; customização flayspell-mode
 
@@ -165,9 +164,41 @@
 ;; Disable arrow keys to enforce C-n, C-p, C-f and C-b
 
 (global-unset-key (kbd "<left>") )
-
 (global-unset-key (kbd "<right>") )
-
 (global-unset-key (kbd "<up>") )
-
 (global-unset-key (kbd "<down>") )
+
+;; trying to insert wakatime in emacs
+(global-wakatime-mode)
+(setq wakatime-api-key "37bc2977-bd5e-4794-983d-c88624ec6b32")
+
+;; John Mercouris centered point mode
+;; Homepage: https://github.com/jmercouris/emacs-centered-point
+
+(define-minor-mode centered-point-mode
+  "Alaways center the cursor in the middle of the screen."
+  :lighter "..."
+  (cond (centered-point-mode (add-hook 'post-command-hook 'line-change))
+	(t (remove-hook 'post-command-hook 'line-change)))
+  )
+
+(defun line-change ()
+  (when (eq (get-buffer-window)
+            (selected-window))
+    (recenter)))
+
+(provide 'centeredpoint)
+
+
+;; Paredit tweak -> good to move expressions
+
+(defun reverse-transpose-sexps (arg)
+  (interactive "*p")
+  (transpose-sexps (- arg))
+  ;; when transpose-sexps can no longer transpose, it throws an error and code
+  ;; below this line won't be executed. So, we don't have to worry about side
+  ;; effects of backward-sexp and forward-sexp.
+  (backward-sexp (1+ arg))
+  (forward-sexp 1))
+
+(global-set-key (kbd "C-M-y") 'reverse-tranpose-sexps)
