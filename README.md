@@ -7,6 +7,7 @@ Check-out the dot file
 - cursor highlight for the parenthesis scope
 - helm
 - magit
+- [emacs centered point](https://github.com/jmercouris/emacs-centered-point) (not popular one, but simple and useful)
 
 ### My cheat-sheet
 
