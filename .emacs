@@ -1,4 +1,3 @@
-
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
@@ -55,6 +54,7 @@
  '(ansi-color-names-vector
    ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
  '(custom-enabled-themes (quote (wheatgrass)))
+ '(ido-mode (quote both) nil (ido))
  '(package-selected-packages
    (quote
     (hydra disable-mouse helm magit htmlize company helm-slime rainbow-delimiters transpose-frame paredit wakatime-mode)))
@@ -179,8 +179,7 @@
   "Alaways center the cursor in the middle of the screen."
   :lighter "..."
   (cond (centered-point-mode (add-hook 'post-command-hook 'line-change))
-	(t (remove-hook 'post-command-hook 'line-change)))
-  )
+	(t (remove-hook 'post-command-hook 'line-change))))
 
 (defun line-change ()
   (when (eq (get-buffer-window)
@@ -189,6 +188,7 @@
 
 (provide 'centeredpoint)
 
+(centered-point-mode t)
 
 ;; Paredit tweak -> good to move expressions
 
@@ -202,3 +202,9 @@
   (forward-sexp 1))
 
 (global-set-key (kbd "C-M-y") 'reverse-tranpose-sexps)
+
+;;; Ido-mode everywhere
+
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(ido-mode 1)
