@@ -9,6 +9,14 @@ Check-out the dot file
 - magit
 - [emacs centered point](https://github.com/jmercouris/emacs-centered-point) (not popular one, but simple and useful)
 
+# On bashrc
+
+Swap `control` and `caps lock` keys to avoid emacs pinky:
+
+```bash
+setxkbmap -option ctrl:swapcaps
+```
+
 ### My cheat-sheet
 
 Useful to [remember](https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf)
