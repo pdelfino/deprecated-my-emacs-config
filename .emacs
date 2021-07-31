@@ -188,6 +188,8 @@
 
 (provide 'centeredpoint)
 
+(add-hook 'slime-repl-mode-hook (lambda () (centered-point-mode -1)))
+
 (centered-point-mode t)
 
 ;; Paredit tweak -> good to move expressions
@@ -208,3 +210,10 @@
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
 (ido-mode 1)
+
+;; Try to make flyspell get active everytime you are commiting something on magit
+(add-hook 'git-commit-setup-hook 'git-commit-turn-on-flyspell)
+
+
+;; Auto-fill mode active on every major modes
+(setq-default auto-fill-function 'do-auto-fill)
