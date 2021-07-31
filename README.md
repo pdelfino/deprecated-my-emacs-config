@@ -8,6 +8,9 @@ Check-out the dot file
 - helm
 - magit
 - [emacs centered point](https://github.com/jmercouris/emacs-centered-point) (not popular one, but simple and useful)
+- ido-mode
+- enable auto-fill mode along other other modes
+- flyspell when writting commit messages
 
 # On bashrc
 
