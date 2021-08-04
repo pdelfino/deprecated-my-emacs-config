@@ -217,3 +217,7 @@
 
 ;; Auto-fill mode active on every major modes
 (setq-default auto-fill-function 'do-auto-fill)
+
+;; Refresh showing a file
+
+(global-set-key (kbd "C-x r") 'revert-buffer)
