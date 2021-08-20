@@ -218,10 +218,6 @@
 
 (global-set-key (kbd "C-x r") 'revert-buffer)
 
-;; Make paste-and-replace work
-
-(delete-selection-mode 1)
-
 ;; Refresh without asking for confirmation
 
 (defun my-revert-buffer-noconfirm ()
