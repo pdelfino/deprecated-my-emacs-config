@@ -251,3 +251,11 @@
 ;; Launch emacs as full screen
 
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
+
+;; insert EXWM configuration
+
+;; (use-package exwm
+;;              :ensure t
+;;              :config
+;;              (require 'exwm-config)
+;;              (exwm-config-default))
