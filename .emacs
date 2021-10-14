@@ -57,7 +57,7 @@
  '(ido-mode (quote both) nil (ido))
  '(package-selected-packages
    (quote
-    (dracula-theme exwm golden-ratio hydra disable-mouse helm magit htmlize company helm-slime rainbow-delimiters transpose-frame paredit wakatime-mode)))
+    (org-drill visual-fill-column visual-fill org-bullets dracula-theme exwm golden-ratio hydra disable-mouse helm magit htmlize company helm-slime rainbow-delimiters transpose-frame paredit wakatime-mode)))
  '(safe-local-variable-values
    (quote
     ((eval cl-flet
@@ -215,7 +215,11 @@
 
 ;; Refresh the current buffer
 
-(global-set-key (kbd "C-x r") 'revert-buffer)
+(global-set-key (kbd "C-x C-M-r") 'revert-buffer)
+
+;; Keybinding to jump to bookmarks
+
+(global-set-key (kbd "C-x C-M-b") 'bookmark-jump)
 
 ;; Refresh without asking for confirmation
 
@@ -259,3 +263,40 @@
 ;;              :config
 ;;              (require 'exwm-config)
 ;;              (exwm-config-default))
+
+;; (require 'exwm)
+;; (require 'exwm-config)
+;; (exwm-config-default)
+
+;;teste
+
+;; org-mode tinkering
+
+;; (use-package org
+;;              :hook (org-mode . dw/org-mode-setup)
+;;              :config
+;;              (setq org-ellipsis " ▾"
+;;                    org-hide-emphasis-markers t))
+
+;; (use-package org-bullets
+;;   :after org
+;;   :hook (org-mode . org-bullets-mode)
+;;   :custom
+;;   (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
+
+;; ;; Replace list hyphen with dot
+;; (font-lock-add-keywords 'org-mode
+;;                         '(("^ *\\([-]\\) "
+;;                            (0 (prog1 () (compose-region
+;;                                          (match-beginning 1)
+;;                                          (match-end 1) "•"))))))
+
+;; (with-eval-after-load 'org-faces (dolist (face '((org-level-1 . 1.2)
+;;                                                  (org-level-2 . 1.1)
+;;                                                  (org-level-3 . 1.05)
+;;                                                  (org-level-4 . 1.0)
+;;                                                  (org-level-5 . 1.1)
+;;                                                  (org-level-6 . 1.1)
+;;                                                  (org-level-7 . 1.1)
+;;                                                  (org-level-8 . 1.1)))
+;;                                    (set-face-attribute (car face) nil :font "Cantarell" :weight 'regular :height (cdr face))))
