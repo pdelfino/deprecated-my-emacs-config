@@ -278,8 +278,7 @@
 (global-set-key (kbd "C-c C-x C-M-l") 'org-toggle-link-display)
 
 ;; Emacs development help to run Nyxt via Guix 
-(load "/home/pedro/common-lisp/nyxt/build-scripts/nyxt-guix.el"
-      :noerror)
+(load "/home/pedro/common-lisp/nyxt/build-scripts/nyxt-guix.el" :noerror)
 
 ;; insert EXWM configuration
 
