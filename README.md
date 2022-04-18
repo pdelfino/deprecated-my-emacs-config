@@ -1,6 +1,6 @@
 # This version is deprecated. Check-out the my dot files
 
-- [My dot files][https://github.com/pdelfino/dotfiles]
+- [My dot files](https://github.com/pdelfino/dotfiles)
 
 ## Old Emacs config
 
