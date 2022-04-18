@@ -1,4 +1,8 @@
-# Emacs config
+# This version is deprecated. Check-out the my dot files
+
+- [My dot files][https://github.com/pdelfino/dotfiles]
+
+## Old Emacs config
 
 Check-out the dot file
 - paredit
